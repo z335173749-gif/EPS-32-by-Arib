@@ -1,0 +1,90 @@
+/* =========================
+   Tech UI Store Script
+   LilyGO ESP32-S3 AMOLED
+   ========================= */
+
+// Product data (can scale later)
+const product = {
+    name: "LilyGO ESP32-S3 Touch AMOLED",
+    price: 39.99
+};
+
+let cart = {
+    qty: 1,
+    total: product.price
+};
+
+// Smooth scrolling for navbar links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute("href"))
+            .scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+// Buy button handler
+function buyNow() {
+    updateCart();
+    showCheckout();
+}
+
+// Update cart calculations
+function updateCart() {
+    const qtyInput = document.getElementById("qty");
+    if (qtyInput) {
+        cart.qty = parseInt(qtyInput.value) || 1;
+    }
+    cart.total = (cart.qty * product.price).toFixed(2);
+}
+
+// Fake checkout modal (simple)
+function showCheckout() {
+    const checkout = document.createElement("div");
+    checkout.className = "checkout-modal";
+
+    checkout.innerHTML = `
+        <div class="checkout-box">
+            <h2>Checkout</h2>
+            <p><strong>Product:</strong> ${product.name}</p>
+            <p><strong>Quantity:</strong> ${cart.qty}</p>
+            <p><strong>Total:</strong> $${cart.total}</p>
+
+            <button onclick="confirmOrder()">Confirm Order</button>
+            <button class="cancel" onclick="closeCheckout()">Cancel</button>
+        </div>
+    `;
+
+    document.body.appendChild(checkout);
+}
+
+// Confirm order
+function confirmOrder() {
+    alert("✅ Order placed successfully!\n(Connect Stripe / PayPal here)");
+    closeCheckout();
+}
+
+// Close checkout modal
+function closeCheckout() {
+    const modal = document.querySelector(".checkout-modal");
+    if (modal) modal.remove();
+}
+
+// Tech glow effect on hover
+document.addEventListener("mousemove", e => {
+    document.documentElement.style.setProperty(
+        "--glow-x",
+        `${e.clientX}px`
+    );
+    document.documentElement.style.setProperty(
+        "--glow-y",
+        `${e.clientY}px`
+    );
+});
+
+// Optional: Console branding 😎
+console.log(
+`⚡ TechWave Store Loaded
+Product: ${product.name}
+Price: $${product.price}`
+);

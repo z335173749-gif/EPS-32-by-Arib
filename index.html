@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32-S3 Touch AMOLED Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">TechWave</div>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#specs">Specs</a>
+            <a href="#buy">Buy</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>LilyGO ESP32-S3 Touch AMOLED</h1>
+            <p>Next-Gen Touch UI Microcontroller — Fast, Bright & Powerful</p>
+            <span class="price">$39.99</span>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+        <div class="hero-img">
+            <img src="esp32-s3.png" alt="LilyGO ESP32-S3 Touch AMOLED">
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Features</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Touch AMOLED Screen</h3>
+                <p>Ultra-responsive display with stunning clarity.</p>
+            </div>
+            <div class="card">
+                <h3>ESP32-S3 Core</h3>
+                <p>High-performance dual-core microprocessor.</p>
+            </div>
+            <div class="card">
+                <h3>Wireless Ready</h3>
+                <p>Built-in Wi-Fi & Bluetooth for seamless connectivity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs">
+        <h2>Specifications</h2>
+        <ul class="spec-list">
+            <li>CPU: 240 MHz Dual Core</li>
+            <li>Display: 2.9″ Touch AMOLED</li>
+            <li>Memory: 8 MB Flash</li>
+            <li>Wi-Fi 802.11 b/g/n</li>
+            <li>Bluetooth 5.0</li>
+            <li>GPIO: 30+ Pins</li>
+        </ul>
+    </section>
+
+    <section id="buy" class="buy-section">
+        <h2>Ready To Buy?</h2>
+        <button onclick="buyNow()">Checkout $39.99</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TechWave. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function buyNow() {
+            alert("Redirecting to checkout...");
+            // In real site -> window.location.href = "/checkout.html";
+        }
+    </script>
+</body>
+</html>
